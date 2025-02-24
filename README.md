@@ -7,7 +7,7 @@ This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusi
 
 [Liangtao Shi]()<sup>1*</sup>,
 [Ting Liu]()<sup>1* </sup>,
-[iantao Hu]()<sup>2</sup>,
+[Xiantao Hu]()<sup></sup>,
 [Yue Hu]()<sup>2</sup>,\
 [Quanjun Yin]()<sup>2</sup>,
 [Richang Hong,]()<sup>1✉️</sup>
