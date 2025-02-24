@@ -24,6 +24,7 @@ This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusi
 <div align=center>
 <img width="600" alt="image" src="img/intro.png">
 </div>
+
 # Preparation
 
 ## Environment
@@ -57,7 +58,7 @@ bash run_scripts/train.sh
 
 If you want to use multi-gpu training, simply modify the `gpu` in the run_scripts/train.sh. Please notice that you should execute this bash script under the first-level directory (the path with train.py).
 
-To evaluate DETRIS, specify the model file path in test.sh according to your requirements and run the script:
+To evaluate SwimVG, specify the model file path in test.sh according to your requirements and run the script:
 
 ```
 bash run_scripts/test.sh
@@ -66,10 +67,11 @@ bash run_scripts/test.sh
 If you want to visualize the results, simply modify the `visualize` to `True` in the config file. 
 
 ## Results
-| Method                       | RefCOCO (val) | RefCOCO (testA) | RefCOCO (testB) | RefCOCO+ (val) | RefCOCO+ (testA) | RefCOCO+ (testB) | G-Ref (val(u)) | G-Ref (test(u)) | G-Ref (val(g)) | Avg   |
-|------------------------------|---------------|------------------|-----------------|----------------|-------------------|------------------|----------------|------------------|----------------|-------|
-|MaPPER                        | 76.0          | 78.2            | 73.5           | 68.9           | 74.0             | 61.5            | 67.9          | 68.1            | 65.9           | 70.4  |
-| SwimVG             | 77.3      | 79.0        | 75.2       | 70.8       | 75.3         | 64.7        | 69.3      | 70.2        | 67.9       | 72.2 |
+| Method        | Backbone  |   Tuned/Total param. | RefCOCO (val) | RefCOCO (testA) | RefCOCO (testB) | RefCOCO+ (val) | RefCOCO+ (testA) | RefCOCO+ (testB) | RefCOCOg (val(g)) | RefCOCOg (val(u) | RefCOCOg (test(u) | Flickr30K (test)   |
+|------------------------------|-----------------------|-------|---------------|------------------|-----------------|----------------|-------------------|------------------|----------------|------------------|----------------|-------|
+|MaPPER [EMNLP24]     |   DINOv2/BERT-B      |  6.2%   | 86.03          | 88.90            | 81.19           | 74.92          | 81.12             | 65.68            | 74.60          | 76.32            | 75.81           | -  |
+|HIVG [MM24]     |     CLIP-B   | 20.1% | 87.32          | 89.86            | 83.27          | 78.06          | 84.81             | 68.11            | -          | 78.29            | 75.81           | -  |
+| SwimVG    |   DINOv2/CLIP-B  |2.03%| 88.29      | 90.37        | 84.89      | 77.92       | 83.22         | 69.95        | 79.10      | 80.14        | 79.69       | 83.10 |
 
 
 ## Weights
@@ -78,17 +80,10 @@ Our model weights have already been open-sourced and can be directly downloaded 
 
 # Acknowledgements
 
-The code is based on [CRIS](https://github.com/DerrickWang005/CRIS.pytorch), [ETRIS](https://github.com/kkakkkka/ETRIS) and [DiNOv2](https://github.com/facebookresearch/dinov2). We thank the authors for their open-sourced code and encourage users to cite their works when applicable.
+The code is based on [MaPPER](https://github.com/liuting20/MaPPER), and [DiNOv2](https://github.com/facebookresearch/dinov2). We thank the authors for their open-sourced code and encourage users to cite their works when applicable.
 
 # Citation
 
-If DETRIS is useful for your research, please consider citing:
+If SwimVG is useful for your research, please consider citing:
 
-```angular2html
-@article{huang2025densely,
-  title={Densely Connected Parameter-Efficient Tuning for Referring Image Segmentation},
-  author={Huang, Jiaqi and Xu, Zunnan and Liu, Ting and Liu, Yong and Han, Haonan and Yuan, Kehong and Li, Xiu},
-  journal={arXiv preprint arXiv:2501.08580},
-  year={2025}
-}
-```
+
