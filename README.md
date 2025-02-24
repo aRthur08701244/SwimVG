@@ -2,6 +2,18 @@
 
 This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding](https://arxiv.org/abs/).
 
+<h5 align="center"> 
+
+
+[Liangtao Shi]()<sup>1*</sup>,
+[Ting Liu]()<sup>1* </sup>,
+[iantao Hu]()<sup>2</sup>,
+[Yue Hu]()<sup>2</sup>,\
+[Quanjun Yin]()<sup>2</sup>,
+[Richang Hong,]()<sup>1✉️</sup>
+
+<sup>1</sup>Hefei University of Technology, <sup>2</sup>National University of Defense Technology
+
 # Overall Architecture
 
 <img src="img/image.png">
