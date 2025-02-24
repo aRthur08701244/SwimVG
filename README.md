@@ -19,10 +19,11 @@ This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusi
 
 <img src="img/image.png">
 
+
 # Comparasion with Mainstream Framework
-
-<img width="600" alt="image" src="intro.png">
-
+<div align=center>
+<img width="600" alt="image" src="img/intro.png">
+</div>
 # Preparation
 
 ## Environment
