@@ -1,6 +1,6 @@
-# DETRIS
+# SwimVG
 
-This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding](https://arxiv.org/abs/2501.08580).
+This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding](https://arxiv.org/abs/).
 
 # Overall Architecture
 
