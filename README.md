@@ -7,12 +7,13 @@ This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusi
 
 [Liangtao Shi]()<sup>1*</sup>,
 [Ting Liu]()<sup>1* </sup>,
-[Xiantao Hu]()<sup></sup>,
+[Xiantao Hu]()<sup>3</sup>,
 [Yue Hu]()<sup>2</sup>,\
 [Quanjun Yin]()<sup>2</sup>,
 [Richang Hong,]()<sup>1✉️</sup>
 
-<sup>1</sup>Hefei University of Technology, <sup>2</sup>National University of Defense Technology
+<sup>1</sup>Hefei University of Technology, <sup>2</sup>National University of Defense Technology, \
+<sup>3</sup>Nanjing University of Science and Technology
 
 # Overall Architecture
 
