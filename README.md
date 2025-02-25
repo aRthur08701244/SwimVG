@@ -1,6 +1,6 @@
 # SwimVG
 
-This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding](https://arxiv.org/abs/).
+This is an official PyTorch implementation of [SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding](https://arxiv.org/pdf/2502.16786).
 
 <h5 align="center"> 
 
@@ -85,5 +85,3 @@ The code is based on [MaPPER](https://github.com/liuting20/MaPPER), and [DiNOv2]
 # Citation
 
 If SwimVG is useful for your research, please consider citing:
-
-
