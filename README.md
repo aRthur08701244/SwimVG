@@ -85,3 +85,6 @@ The code is based on [MaPPER](https://github.com/liuting20/MaPPER), and [DiNOv2]
 # Citation
 
 If SwimVG is useful for your research, please consider citing:
+
+## :e-mail: Contact
+For any question about our paper or code, please contact [Liangtao Shi](mailto:2024010056@mail.hfut.edu.cn).
