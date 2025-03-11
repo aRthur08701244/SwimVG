@@ -85,6 +85,12 @@ The code is based on [MaPPER](https://github.com/liuting20/MaPPER), and [DiNOv2]
 # Citation
 
 If SwimVG is useful for your research, please consider citing:
+@article{shi2025swimvg,
+  title={SwimVG: Step-wise Multimodal Fusion and Adaption for Visual Grounding},
+  author={Shi, Liangtao and Liu, Ting and Hu, Xiantao and Hu, Yue and Yin, Quanjun and Hong, Richang},
+  journal={arXiv preprint arXiv:2502.16786},
+  year={2025}
+}
 
 ## :e-mail: Contact
 For any question about our paper or code, please contact [Liangtao Shi](mailto:2024010056@mail.hfut.edu.cn).
