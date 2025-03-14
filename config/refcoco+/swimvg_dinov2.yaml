@@ -15,19 +15,13 @@ TRAIN:
   dino_pretrain: ./pretrain/dinov2_vitl14_reg4_pretrain.pth
   dino_name: dinov2-large
   dino_layers: 24
-  output_dinov2: [8, 16]
   model_name: CLIP-b-16
   input_size: 224 
   word_len: 40 
   word_dim: 512
   ladder_dim: 64
   nhead: 8
-  multi_stage: 3
-  stride: [1, 1, 1]
   vis_dim: 512
-  fpn_in: [1024, 1024, 1024] #dinov2 backbone
-  # fpn_in: [1536, 1536, 1280] 
-  fpn_out: [256, 512, 1024]
   sync_bn: True
   dinov2: True #双encoder
   dinov2_only_backbone: True #dino替代clip
@@ -43,9 +37,9 @@ TRAIN:
   epochs: 180 
   milestones: [120]
   start_epoch: 0
-  batch_size: 256  # batch size for training
+  batch_size: 32  # batch size for training
   batch_size_val: 32  # batch size for validation during training, memory and speed tradeoff
-  base_lr: 0.0004
+  base_lr: 0.0001
   lr_decay: 0.1
   lr_multi: 1
   weight_decay: 0.
