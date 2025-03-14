@@ -60,13 +60,13 @@ class Attention(nn.Module):
         q, k, v = qkv[0] * self.scale, qkv[1], qkv[2]
         attn = q @ k.transpose(-2, -1)
 
-        attn1 = attn.softmax(dim=-1)
-        attn = self.attn_drop(attn1)
+        attn = attn.softmax(dim=-1)
+        attn = self.attn_drop(attn)
 
         x = (attn @ v).transpose(1, 2).reshape(B, N, C)
         x = self.proj(x)
         x = self.proj_drop(x)
-        return x, attn1
+        return x
 
 
 class MemEffAttention(Attention):
@@ -74,7 +74,6 @@ class MemEffAttention(Attention):
         if not XFORMERS_AVAILABLE:
             if attn_bias is not None:
                 raise AssertionError("xFormers is required for using nested tensors")
-        return super().forward(x)
 
         B, N, C = x.shape
         qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads)

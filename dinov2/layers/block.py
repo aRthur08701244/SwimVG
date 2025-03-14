@@ -205,27 +205,22 @@ class Block(nn.Module):
 
         self.sample_drop_ratio = drop_path
         self.use_adapter = use_adapter   
-        if use_adapter:        #384 192 96 24 96 24 96
-            # self.adapter = MulConvAdapter1(dim, visual_adapter_dim, visual_adapter_dim//2, visual_adapter_dim//16, visual_adapter_dim//4, visual_adapter_dim//16, visual_adapter_dim//4) #fc_in_channels, in_channels, ch1x1, ch3x3in, ch3x3out, ch5x5in, ch5x5out
+        if use_adapter:  
             self.adapter = Adapter(dim, visual_adapter_dim)
             
             drop_path = 0.
             self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
 
-        # self.cross = nn.Multihead
         self.use_prompt = use_prompt
         if use_prompt:
             self.adapter_proj = nn.Linear(512, dim)
 
     def forward(self, x: Tensor, prompt = None, text_features = None) -> Tensor:
         def attn_residual_func(x: Tensor) -> Tensor:
-            x,_ = self.attn(self.norm1(x))
-            return self.ls1(x)
-            #return self.ls1(self.attn(self.norm1(x)))
+            return self.ls1(self.attn(self.norm1(x)))
 
         def ffn_residual_func(x: Tensor) -> Tensor:
             if self.use_adapter:
-                #adapter_out = self.adapter(x, text_features)
                 adapter_out = self.adapter(self.norm2(x), text_features)
                 out = self.mlp(self.norm2(x))+self.drop_path(0.2*adapter_out)
             else:
@@ -246,14 +241,10 @@ class Block(nn.Module):
                 sample_drop_ratio=self.sample_drop_ratio,
             )
 
-            # print("===========236")
-            # print(x.shape)
-            
+
         elif self.training and self.sample_drop_ratio > 0.0:
             x = x + self.drop_path1(attn_residual_func(x))
             x = x + self.drop_path1(ffn_residual_func(x))  # FIXME: drop_path2
-            # print("===========236")
-            # print(x.shape)
 
         else:
 
@@ -262,8 +253,6 @@ class Block(nn.Module):
                 x = torch.cat([x,prompt],dim=1)
             x = x + attn_residual_func(x)
             x = x + ffn_residual_func(x)
-            # print("===========236")
-            # print(x.shape)
             
         return x
 
