@@ -15,7 +15,7 @@ class SwimVG(nn.Module):
         clip_model = torch.jit.load(cfg.clip_pretrain,
                                     map_location="cpu").eval()
         self.backbone = build_model(clip_model.state_dict(), cfg.word_len, -1, cfg.txtual_adapter_layer,cfg.txt_adapter_dim).float()
-        self.fusion = Fusion(d_model=cfg.ladder_dim, nhead=cfg.nhead,dino_layers=cfg.dino_layers, output_dinov2=cfg.output_dinov2)
+        self.fusion = Fusion(d_model=cfg.ladder_dim, nhead=cfg.nhead,dino_layers=cfg.dino_layers)
     
        # Fix Backbone
         for param_name, param in self.backbone.named_parameters():
