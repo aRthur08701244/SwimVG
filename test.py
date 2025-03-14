@@ -41,7 +41,7 @@ def get_parser():
 @logger.catch
 def main():
     args = get_parser()
-    args.exp_name = '_'.join([args.exp_name] + [str(name) for name in [args.ladder_dim, args.nhead, args.dim_ffn, args.multi_stage]])
+    args.exp_name = '_'.join([args.exp_name] + [str(name) for name in [args.ladder_dim, args.nhead, args.dim_ffn]])
     args.exp_name = args.exp_name + datetime.datetime.now().strftime(" %Y-%m-%d-%H-%M-%S")
     args.output_dir = os.path.join(args.output_folder, args.exp_name)
     if args.visualize:

@@ -87,7 +87,7 @@ def main():
 
 
 def main_worker(args, data_args):
-    args.exp_name = '_'.join([args.exp_name] + [str(name) for name in [args.ladder_dim, args.nhead, args.dim_ffn, args.multi_stage]])
+    args.exp_name = '_'.join([args.exp_name] + [str(name) for name in [args.ladder_dim, args.nhead, args.dim_ffn]])
     #expname里加入时间参数
     # dist.barrier()
     args.exp_name = args.exp_name + datetime.datetime.now().strftime(" %Y-%m-%d-%H-%M-%S")
@@ -126,14 +126,10 @@ def main_worker(args, data_args):
 
     # build optimizer & lr scheduler
     optimizer = torch.optim.Adam(param_list, lr=args.base_lr, weight_decay=args.weight_decay)
-    # optimizer = Lion(param_list, lr=args.base_lr, weight_decay=args.weight_decay)
     scheduler = MultiStepLR(optimizer, milestones=args.milestones, gamma=args.lr_decay)
-    #lr_func = lambda epoch: 0.5 * (1. + math.cos(math.pi * epoch / 65))
-    #scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_func)
+
 
     scaler = amp.GradScaler()
-    # dist.barrier()
-    # build dataset
     args.batch_size = int(args.batch_size / args.ngpus_per_node)
     args.batch_size_val = int(args.batch_size_val / args.ngpus_per_node)
     args.workers = int((args.workers + args.ngpus_per_node - 1) / args.ngpus_per_node)
