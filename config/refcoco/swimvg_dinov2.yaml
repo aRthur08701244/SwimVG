@@ -15,7 +15,6 @@ TRAIN:
   dino_pretrain: ./pretrain/dinov2_vitl14_reg4_pretrain.pth
   dino_name: dinov2-large
   dino_layers: 24
-  output_dinov2: [8, 16]
   model_name: CLIP-b-16
   input_size: 224 
   word_len: 40 
