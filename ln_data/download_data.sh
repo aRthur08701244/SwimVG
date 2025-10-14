@@ -101,9 +101,14 @@ REFERIT_SPLITS_URL="https://s3-sa-east-1.amazonaws.com/query-objseg/referit_spli
 REFERIT_DATA_URL="http://www.eecs.berkeley.edu/~ronghang/projects/cvpr16_text_obj_retrieval/referitdata.tar.gz"
 COCO_DATA_URL="http://images.cocodataset.org/zips/train2014.zip"
 
-REFCOCO_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip"
-REFCOCO_PLUS_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip"
-REFCOCOG_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip"
+# REFCOCO_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip"
+# REFCOCO_PLUS_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip"
+# REFCOCOG_URL="http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip"
+
+# Renew URL
+REFCOCO_URL="https://web.archive.org/web/20220413011718/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip"
+REFCOCO_PLUS_URL="https://web.archive.org/web/20220413011656/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip"
+REFCOCOG_URL="https://web.archive.org/web/20220413012904/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip"
 
 REFERIT_FILE=${REFERIT_DATA_URL#*cvpr16_text_obj_retrieval/}
 SPLIT_FILE=${REFERIT_SPLITS_URL#*query-objseg/}
@@ -119,8 +124,8 @@ mkdir referit
 cd referit
 
 printf "Downloading ReferIt dataset (This may take a while...)"
-aria2c -x 8 $REFERIT_DATA_URL
-
+# aria2c -x 8 $REFERIT_DATA_URL
+# The URL is not accessible now. Please refer to https://github.com/liuting20/SwimVG/issues/5 and download the file manually.
 
 printf "Uncompressing data..."
 tar -xzvf $REFERIT_FILE
@@ -130,7 +135,8 @@ mkdir splits
 cd splits
 
 printf "Downloading ReferIt Splits..."
-aria2c -x 8 $REFERIT_SPLITS_URL
+# aria2c -x 8 $REFERIT_SPLITS_URL
+# The URL is not accessible now. Please refer to https://github.com/liuting20/SwimVG/issues/5 and download the file manually.
 
 tar -xjvf $SPLIT_FILE
 rm $SPLIT_FILE
