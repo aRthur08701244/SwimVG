@@ -129,7 +129,7 @@ printf "Downloading ReferIt dataset (This may take a while...)"
 
 printf "Uncompressing data..."
 tar -xzvf $REFERIT_FILE
-rm $REFERIT_FILE
+# rm $REFERIT_FILE
 
 mkdir splits
 cd splits
@@ -139,7 +139,7 @@ printf "Downloading ReferIt Splits..."
 # The URL is not accessible now. Please refer to https://github.com/liuting20/SwimVG/issues/5 and download the file manually.
 
 tar -xjvf $SPLIT_FILE
-rm $SPLIT_FILE
+# rm $SPLIT_FILE
 
 cd ../..
 
@@ -159,4 +159,4 @@ aria2c -x 8 $REFCOCO_PLUS_URL
 aria2c -x 8 $REFCOCOG_URL
 
 unzip "*.zip"
-rm *.zip
+# rm *.zip
