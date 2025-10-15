@@ -2,7 +2,7 @@
 dataset_name="refcoco+" 
 config_name="swimvg_dinov2.yaml"
 
-gpu="7"
+gpu="0" #"7"
 np=$(echo $gpu | tr -cd ',' | wc -c)
 np=$((np + 1))
 omp=8

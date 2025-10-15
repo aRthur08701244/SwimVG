@@ -6,3 +6,10 @@ ln_data/referitdata.tar.gz
 data.tar
 data/
 pretrain/
+**/__pycache__/
+ln_data/flickr/
+ln_data/gref/
+ln_data/gref_umd/
+ln_data/unc+/
+ln_data/unc/
+**/.ipynb_checkpoints/
