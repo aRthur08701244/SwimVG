@@ -111,7 +111,8 @@ REFCOCO_PLUS_URL="https://web.archive.org/web/20220413011656/https://bvisionweb1
 REFCOCOG_URL="https://web.archive.org/web/20220413012904/https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip"
 
 REFERIT_FILE=${REFERIT_DATA_URL#*cvpr16_text_obj_retrieval/}
-SPLIT_FILE=${REFERIT_SPLITS_URL#*query-objseg/}
+# SPLIT_FILE=${REFERIT_SPLITS_URL#*query-objseg/}
+SPLIT_FILE="refclef.zip"
 COCO_FILE=${COCO_DATA_URL#*zips/}
 
 
@@ -127,9 +128,12 @@ printf "Downloading ReferIt dataset (This may take a while...)"
 # aria2c -x 8 $REFERIT_DATA_URL
 # The URL is not accessible now. Please refer to https://github.com/liuting20/SwimVG/issues/5 and download the file manually.
 
-printf "Uncompressing data..."
+echo "Uncompressing $REFERIT_FILE data..."
+printf "Current Directory:"
+pwd
+cp ../$REFERIT_FILE ./$REFERIT_FILE
 tar -xzvf $REFERIT_FILE
-# rm $REFERIT_FILE
+rm $REFERIT_FILE
 
 mkdir splits
 cd splits
@@ -138,8 +142,12 @@ printf "Downloading ReferIt Splits..."
 # aria2c -x 8 $REFERIT_SPLITS_URL
 # The URL is not accessible now. Please refer to https://github.com/liuting20/SwimVG/issues/5 and download the file manually.
 
-tar -xjvf $SPLIT_FILE
-# rm $SPLIT_FILE
+echo "Uncompressing $SPLITE_FILE data..."
+printf "Current Directory:"
+pwd
+cp ../../$SPLIT_FILE ./$SPLIT_FILE
+unzip $SPLIT_FILE
+rm $SPLIT_FILE
 
 cd ../..
 
