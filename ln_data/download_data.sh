@@ -168,3 +168,5 @@ aria2c -x 8 $REFCOCOG_URL
 
 unzip "*.zip"
 # rm *.zip
+
+mv other/images/mscoco/images/train2014 other/images/train2014

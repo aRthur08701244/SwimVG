@@ -13,3 +13,4 @@ ln_data/gref_umd/
 ln_data/unc+/
 ln_data/unc/
 **/.ipynb_checkpoints/
+**.pth
