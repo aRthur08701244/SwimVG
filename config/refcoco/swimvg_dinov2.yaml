@@ -62,4 +62,5 @@ Distributed:
   rank: 0
 TEST:
   test_split: val-test
-  visualize: True  
+  visualize: True
+  model_dir: best_model.pth

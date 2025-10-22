@@ -74,7 +74,8 @@ def main():
     model = torch.nn.DataParallel(model).cuda()
     logger.info(model)
 
-    args.model_dir="/vlm-ssd/liuting/swimvg/exp/refcoco/swimvg/best_model.pth"
+    if not hasattr(args, 'model_dir') or args.model_dir is None:
+        raise ValueError("Please specify model_dir in config or via  --opts TEST.model_dir <path>")
     if os.path.isfile(args.model_dir):
         logger.info("=> loading checkpoint '{}'".format(args.model_dir))
         checkpoint = torch.load(args.model_dir)

@@ -1,5 +1,5 @@
 #!/bin/bash
-dataset_name="refcoco+" 
+dataset_name="refcocog_g"
 config_name="swimvg_dinov2.yaml"
 
 gpu="0" #"7"
